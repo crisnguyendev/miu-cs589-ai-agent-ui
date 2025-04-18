@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
-
+@import "tailwindcss";
 * {
   box-sizing: border-box;
 }
@@ -119,4 +119,10 @@ main h2 {
 
 #tab-content code {
   font-size: 1rem;
+}
+img {
+  display: inline !important;
+}
+svg {
+  display: inline !important;
 }
