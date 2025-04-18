@@ -41,7 +41,7 @@ Follow these steps to get the project running locally:
    ```
 
 ## 🚀 Usage
-- Open the application in your browser (`http://localhost:3000`).
+- Open the application in your browser.
 - Use the search functionality to look up references related to Vedic Science.
 - Explore insights from Vedic texts and their relevance to modern understanding.
 
