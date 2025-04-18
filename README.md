@@ -1,54 +1,48 @@
-# React + TypeScript + Vite
+```markdown
+# Vedic Science Search Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React-based application designed to search Vedic texts for insights into Vedic Science. The application retrieves and presents references from various sources, helping users explore ancient wisdom with ease.
 
-Currently, two official plugins are available:
+## 🛠️ Required Tools & Frameworks
+Before setting up the project, ensure you have the following installed:
+- **Node.js** (latest recommended version) - [Download Here](https://nodejs.org/)
+- **npm** (comes with Node.js)
+- **React** (installed via dependencies)
+- **VS Code** (recommended IDE) - [Download Here](https://code.visualstudio.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📂 Installation & Setup
+Follow these steps to get the project running locally:
 
-## Expanding the ESLint configuration
+1. **Clone the Repository**  
+   ```sh
+   git clone <repository-url>
+   cd <project-folder>
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. **Edit API Configuration**  
+   - Open the project folder.
+   - Locate `config.js` inside the `src` directory.
+   - Update `API_URL` to match your backend API endpoint.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+3. **Install Dependencies**  
+   ```sh
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4. **Fix Security Issues (optional)**  
+   ```sh
+   npm audit fix
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+5. **Run the Application**  
+   ```sh
+   npm run dev
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🚀 Usage
+- Open the application in your browser (`http://localhost:3000`).
+- Use the search functionality to look up references related to Vedic Science.
+- Explore insights from Vedic texts and their relevance to modern understanding.
+
+## 📝 License
+This project is licensed under [MIT License](LICENSE). Feel free to modify and distribute.
