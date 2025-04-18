@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import config from "../config";
 const useChatbot = () => {
   const [messages, setMessages] = useState([]);
 
@@ -12,7 +12,7 @@ const useChatbot = () => {
     setMessages(newMessages);
 
     try {
-      const response = await axios.get("http://localhost:8000/retrieve", {
+      const response = await axios.get(`${config.API_URL}/retrieve`, {
         params: { query: message, k: 5 },
       });
 
