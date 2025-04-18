@@ -1,4 +1,4 @@
-```markdown
+
 # Vedic Science Search Application
 
 This project is a React-based application designed to search Vedic texts for insights into Vedic Science. The application retrieves and presents references from various sources, helping users explore ancient wisdom with ease.
@@ -13,11 +13,12 @@ Before setting up the project, ensure you have the following installed:
 ## 📂 Installation & Setup
 Follow these steps to get the project running locally:
 
+
 1. **Clone the Repository**  
    ```sh
    git clone <repository-url>
    cd <project-folder>
-   ```
+   
 
 2. **Edit API Configuration**  
    - Open the project folder.
