@@ -41,10 +41,10 @@ function App() {
               <p>{EXAMPLES[selectedTopic].description}</p>
             </div>)}
         </section>
-      </main>
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-          <ChatComponent />
-      </div>
+        <section id="core-concepts">
+          <ChatComponent />        
+        </section>
+      </main>     
     </div>
   );
 }

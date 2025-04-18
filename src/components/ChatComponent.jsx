@@ -26,11 +26,11 @@ const ChatComponent = () => {
   };
 
   return (
-    <div className="flex flex-col h-[80vh] bg-white">
+    <div className="flex flex-col w-full max-w-md bg-white rounded-lg">
       <h2 className="p-4 font-semibold text-lg text-center bg-blue-100 flex text-blue-800 justify-center items-center gap-2">
         Vedic Agent <LuBot size={25} />
       </h2>
-      <div className="flex-1 overflow-y-auto p-4 space-y-2">
+      <div className="flex-1 overflow-y-auto p-4 space-y-2 max-h-96">
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -44,7 +44,7 @@ const ChatComponent = () => {
           </div>
         ))}
       </div>
-      <div className="flex items-center p-4 bg-gray-50">
+      <div className="flex items-center p-4 bg-white">
         <input
           type="text"
           className="flex-1 p-2 border rounded-lg focus:outline-none"
