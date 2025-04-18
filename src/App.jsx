@@ -4,6 +4,7 @@ import CoreConcept from './components/CoreConcept';
 import Header from './components/Header/Header';
 import TabButton from './components/TabButton';
 import { EXAMPLES } from './data';
+import ChatComponent from "./components/ChatComponent";
 function App() {
 
   const [ selectedTopic, setSelectedTopic ] = useState('');
