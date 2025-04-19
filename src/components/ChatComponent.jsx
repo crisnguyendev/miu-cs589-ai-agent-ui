@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { LuBot, LuSendHorizontal } from "react-icons/lu";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import useChatbot from "../hooks/useChatbot";
 import Markdown from "react-markdown";
 
 const ChatComponent = () => {
   const [input, setInput] = useState("");
   const { messages, sendMessage, setMessages } = useChatbot();
+  const [expandedQuotes, setExpandedQuotes] = useState({});
 
   useEffect(() => {
     if (messages.length === 0) {
@@ -23,6 +25,13 @@ const ChatComponent = () => {
       sendMessage(input);
       setInput("");
     }
+  };
+
+  const toggleQuotes = (messageIndex) => {
+    setExpandedQuotes((prev) => ({
+      ...prev,
+      [messageIndex]: !prev[messageIndex],
+    }));
   };
 
   return (
@@ -45,20 +54,42 @@ const ChatComponent = () => {
           } else {
             // Split bot message into answer and quotes (if any)
             const [answer, ...quotes] = msg.text.split("\n\n");
+            const showAllQuotes = expandedQuotes[index];
+            const initialContent = quotes.length > 0 ? `${answer}\n\n${quotes[0]}` : answer;
+            const remainingQuotes = quotes.slice(1);
+
             return (
               <div key={index} className="space-y-2">
                 <div
                   id="ai-answer"
                   className="p-3 rounded-lg max-w-xs whitespace-pre-wrap bg-gray-300 text-gray-800"
                 >
-                  <Markdown>{answer}</Markdown>
+                  <Markdown>{initialContent}</Markdown>
                 </div>
-                {quotes.length > 0 && (
-                  <div
-                    id="ai-reply"
-                    className="p-3 rounded-lg max-w-xs whitespace-pre-wrap bg-gray-300 text-gray-800 text-left"
-                  >
-                    <Markdown>{quotes.join("\n\n")}</Markdown>
+                {remainingQuotes.length > 0 && (
+                  <div className="space-y-2">
+                    {showAllQuotes && (
+                      <div
+                        id="ai-reply"
+                        className="p-3 rounded-lg max-w-xs whitespace-pre-wrap bg-gray-300 text-gray-800 text-left"
+                      >
+                        <Markdown>{remainingQuotes.join("\n\n")}</Markdown>
+                      </div>
+                    )}
+                    <button
+                      onClick={() => toggleQuotes(index)}
+                      className="flex items-center gap-1 text-blue-600 hover:text-blue-800 text-sm"
+                    >
+                      {showAllQuotes ? (
+                        <>
+                          Show less <FaChevronUp size={12} />
+                        </>
+                      ) : (
+                        <>
+                          Show more <FaChevronDown size={12} />
+                        </>
+                      )}
+                    </button>
                   </div>
                 )}
               </div>
