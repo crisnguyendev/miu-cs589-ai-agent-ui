@@ -41,7 +41,7 @@ function App() {
               <p>{EXAMPLES[selectedTopic].description}</p>
             </div>)}
         </section>
-        <section id="core-concepts">
+        <section id="ai-concepts">
           <ChatComponent />        
         </section>
       </main>     

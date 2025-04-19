@@ -32,6 +32,13 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
+#ai-concepts {
+  padding: 2rem;
+  border-radius: 6px;
+  background-color: #140524;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 main h2 {
   text-align: center;
   font-family: "Roboto Condensed", sans-serif;
@@ -65,6 +72,25 @@ main h2 {
 }
 
 #core-concepts li p {
+  font-size: 0.9rem;
+}
+
+#ai-concepts li {
+  /* width: 10rem; */
+  text-align: center;
+}
+
+#ai-concepts li img {
+  height: 4rem;
+  width: 6rem;
+  object-fit: cover;
+}
+
+#ai-concepts li h3 {
+  margin: 0.5rem 0;
+}
+
+#ai-concepts li p {
   font-size: 0.9rem;
 }
 

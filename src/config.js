@@ -1,5 +1,5 @@
 const config = {
-    API_URL: "http://localhost:8000",
+    API_URL: "https://miu-cs589-ai-agent-api.onrender.com",
   };
   
   export default config;
