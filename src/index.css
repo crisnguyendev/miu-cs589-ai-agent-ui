@@ -80,6 +80,10 @@ main h2 {
   text-align: center;
 }
 
+#ai-reply li p {
+  color: gold;
+}
+
 #ai-concepts li img {
   height: 4rem;
   width: 6rem;
