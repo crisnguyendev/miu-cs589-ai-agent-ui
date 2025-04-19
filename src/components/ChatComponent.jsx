@@ -34,6 +34,7 @@ const ChatComponent = () => {
         {messages.map((msg, index) => (
           <div
             key={index}
+            id="ai-reply"
             className={`p-3 rounded-lg max-w-xs whitespace-pre-wrap ${
               msg.sender === "user"
                 ? "bg-blue-500 text-white ml-auto"
