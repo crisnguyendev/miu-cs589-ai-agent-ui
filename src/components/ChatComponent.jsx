@@ -31,19 +31,40 @@ const ChatComponent = () => {
         Vedic Agent <LuBot size={25} />
       </h2>
       <div className="flex-1 overflow-y-auto p-4 space-y-2 max-h-96">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            id="ai-reply"
-            className={`p-3 rounded-lg max-w-xs whitespace-pre-wrap ${
-              msg.sender === "user"
-                ? "bg-blue-500 text-white ml-auto"
-                : "bg-gray-300 text-gray-800"
-            }`}
-          >
-            <Markdown>{msg.text}</Markdown>
-          </div>
-        ))}
+        {messages.map((msg, index) => {
+          if (msg.sender === "user") {
+            return (
+              <div
+                key={index}
+                id="user-question"
+                className="p-3 rounded-lg max-w-xs whitespace-pre-wrap bg-blue-500 text-white ml-auto"
+              >
+                <Markdown>{msg.text}</Markdown>
+              </div>
+            );
+          } else {
+            // Split bot message into answer and quotes (if any)
+            const [answer, ...quotes] = msg.text.split("\n\n");
+            return (
+              <div key={index} className="space-y-2">
+                <div
+                  id="ai-answer"
+                  className="p-3 rounded-lg max-w-xs whitespace-pre-wrap bg-gray-300 text-gray-800"
+                >
+                  <Markdown>{answer}</Markdown>
+                </div>
+                {quotes.length > 0 && (
+                  <div
+                    id="ai-reply"
+                    className="p-3 rounded-lg max-w-xs whitespace-pre-wrap bg-gray-300 text-gray-800 text-left"
+                  >
+                    <Markdown>{quotes.join("\n\n")}</Markdown>
+                  </div>
+                )}
+              </div>
+            );
+          }
+        })}
       </div>
       <div className="flex items-center p-4 bg-white">
         <input
