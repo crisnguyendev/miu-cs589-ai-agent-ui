@@ -94,6 +94,10 @@ main h2 {
   font-size: 0.9rem;
 }
 
+#ai-concepts input {
+  width: 95%;
+}
+
 #examples {
   margin: 3rem auto;
 }
