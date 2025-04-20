@@ -39,7 +39,10 @@ const ChatComponent = () => {
       <h2 className="p-4 font-semibold text-lg text-center bg-blue-100 flex text-blue-800 justify-center items-center gap-2">
         Vedic Agent <LuBot size={25} />
       </h2>
-      <div className="flex-1 overflow-y-auto p-4 space-y-2 max-h-96">
+      <div
+        className="flex-1 overflow-y-auto p-4 space-y-2"
+        style={{ paddingBottom: "2rem" }}
+      >
         {messages.map((msg, index) => {
           if (msg.sender === "user") {
             return (
@@ -55,7 +58,8 @@ const ChatComponent = () => {
             // Split bot message into answer and quotes (if any)
             const [answer, ...quotes] = msg.text.split("\n\n");
             const showAllQuotes = expandedQuotes[index];
-            const initialContent = quotes.length > 0 ? `${answer}\n\n${quotes[0]}` : answer;
+            const initialContent =
+              quotes.length > 0 ? `${answer}\n\n${quotes[0]}` : answer;
             const remainingQuotes = quotes.slice(1);
 
             return (
