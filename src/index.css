@@ -82,6 +82,7 @@ main h2 {
 
 #ai-reply li p {
   color: gold;
+  font-size: 0.7rem !important ;
 }
 
 #ai-concepts li img {

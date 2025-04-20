@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import config from "../config";
+
 const useChatbot = () => {
   const [messages, setMessages] = useState([]);
 
@@ -12,18 +13,20 @@ const useChatbot = () => {
     setMessages(newMessages);
 
     try {
-      const response = await axios.get(`${config.API_URL}/retrieve`, {
+      const response = await axios.get(`${config.API_URL}/answer`, {
         params: { query: message, k: 5 },
       });
-
-      const results = response.data.results;
-
-      const botReply = results
+      
+      const answer = response.data.answer;
+      const contexts = response.data.context;
+      
+      // Construct botReply with answer first, followed by context quotes
+      const botReply = `Answer: ${answer}\n\n${contexts
         .map(
           (item, index) =>
-            `${index + 1}. ${item.verse} \n📚 Source: ${item.source}`
+            `${index + 1}. ${item.verse}\n📚 Source: ${item.source}`
         )
-        .join("\n\n");
+        .join("\n\n")}`;
 
       setMessages([...newMessages, { text: botReply, sender: "bot" }]);
     } catch (error) {
